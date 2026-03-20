@@ -7,7 +7,8 @@ let socketSnippet: ReturnType<typeof io> | null = null;
 export const getSocketSnippet = () => {
     if (!socketSnippet) {
         const session = useAuthStore.getState().session;
-        socketSnippet = io(`http://${import.meta.env.VITE_BASE_PORT}/snippet`, {
+
+        socketSnippet = io("/snippet", {
             autoConnect: false,
             extraHeaders: {
                 authorization: `Bearer ${session?.accessToken}`

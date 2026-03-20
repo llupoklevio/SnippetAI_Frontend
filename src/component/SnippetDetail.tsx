@@ -20,7 +20,7 @@ export const SnippetDetail = () => {
         return (
             <div className="h-screen flex flex-col items-center justify-center">
                 <p>{error.message}</p>
-                <p>{error.response.data.message}</p>
+                <p>{(error as any).response.data.message}</p>
             </div>
         )
     }

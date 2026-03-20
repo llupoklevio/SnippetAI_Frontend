@@ -13,6 +13,9 @@ export const Snippets = () => {
    const postDescAI = usePostSnippetDescAI()
     const {stateDesc,deleteSingleDesc} = useStateDescStoreAI()
 
+
+    console.log("snippets data:", snippets)
+
     const saveAI = async (snippetId: number) => {
         try{
 
@@ -54,7 +57,7 @@ export const Snippets = () => {
 
     return (
         <>
-        {snippets?.snippets?.length! > 0  ? <div >
+        {snippets?.snippets && snippets?.snippets.length  > 0  ? <div >
                 <div className="flex justify-between items-center px-6 mt-2">
                     <h1 className=" text-3xl">My Snippets</h1>
                     <button onClick={() => navigate("/home/addSnippet")} className="rounded-xl btn btn-success">
@@ -78,7 +81,7 @@ export const Snippets = () => {
                         </div>
                         <div style={{width: "15%"}} className=" flex items-center flex-col p-1">
                             <span className="text-xs  flex items-center h-1/2">{new Date(snippet.dateCreation).toLocaleDateString()}</span>
-                            {!snippet.description && stateDesc![snippet.id] && <span onClick={(e) => {
+                            {!snippet.description && stateDesc?.[String(snippet.id)] && <span onClick={(e) => {
                                 e.stopPropagation();  void saveAI(snippet.id)
                             }} className="h-1/2 gap-1 flex rounded-md justify-center items-center p-1 bg-purple-950"><img src={play} height={15} width={15} alt="play logo"/><span className="text-xs  text-purple-300 ">
                                AI desc

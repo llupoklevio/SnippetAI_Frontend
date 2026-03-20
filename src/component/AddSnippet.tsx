@@ -62,7 +62,7 @@ export const AddSnippet = () => {
 
             console.log(response,"response")
             navigate("/home")
-        }catch (error){
+        }catch (error : any){
 
             alert(error.response.data.message)
 

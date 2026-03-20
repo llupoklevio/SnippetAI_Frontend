@@ -68,7 +68,8 @@ export const AISearch = () => {
             setSnippets({
                 snippets: []
             })
-            alert(error.response?.data?.message,error)
+
+            alert(error.response?.data?.message)
         }
 
     }
@@ -118,7 +119,7 @@ export const AISearch = () => {
                         <p className="text-gray-500">{"Results".toUpperCase()} : {snippetsFilteredByAI.length} matches</p>
 
                         <div className="mt-2">
-                            {snippetsFilteredByAI.map((snippet) => (
+                            {snippetsFilteredByAI.map((snippet : any) => (
                                 <div key={snippet.id}>
                                     <div style={{width: "99%"}} onClick={() => navigate(`/home/snippet/${snippet.id}`)} className="transition-colors duration-100 cursor-pointer hover:bg-blue-950 bg-[#0d0d1a] rounded-md border border-gray-800 flex h-16" key={snippet.id}>
 
