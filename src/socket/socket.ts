@@ -8,7 +8,7 @@ export const getSocketSnippet = () => {
     if (!socketSnippet) {
         const session = useAuthStore.getState().session;
 
-        socketSnippet = io("/snippet", {
+        socketSnippet = io("https://tuo-backend.up.railway.app/snippet", {
             autoConnect: false,
             extraHeaders: {
                 authorization: `Bearer ${session?.accessToken}`

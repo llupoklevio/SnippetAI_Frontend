@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/socket.io/:path*",
+      "destination": "https://tuo-backend.up.railway.app/socket.io/:path*"
+    },
+    {
       "source": "/api/:path*",
       "destination": "https://tuo-backend.up.railway.app/:path*"
     }
