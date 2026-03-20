@@ -1,6 +1,6 @@
 import {useMutation} from "@tanstack/react-query";
-import {postRegister} from "../../networking/auth.ts";
-import type {registerSend} from "../../type/authValidator.ts";
+import {postLogin, postRegister} from "../../networking/auth.ts";
+import type {loginSend, registerSend} from "../../type/authValidator.ts";
 
 
 export const useAuthRegister = () => {
@@ -10,4 +10,12 @@ export const useAuthRegister = () => {
         mutationFn: (data : registerSend) => postRegister.fn(data)
     })
 
+}
+
+export const useAuthLogin = () => {
+
+    return useMutation({
+        mutationKey: [postLogin.name],
+        mutationFn: (data: loginSend) => postLogin.fn(data)
+    })
 }

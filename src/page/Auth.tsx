@@ -19,7 +19,7 @@ export const Auth = () => {
                 </div>
 
                 <div className="flex justify-center items-center flex-col">
-                    <div className="card relative pb-8 text-amber-50 border border-gray-600 rounded-2xl bg-[#0d0d1a] min-h-48 text-neutral-content w-4/12">
+                    <div className="card relative pb-8 text-amber-50 border border-gray-600 rounded-2xl bg-[#0d0d1a] min-h-48 w-4/12">
                         <div className="items-center p-5">
                             <h2 className="text-3xl card-title">{pathLocation === '/register'? 'Welcome' : 'Welcome back' }</h2>
                             <p className="text-sm text-gray-500">Sign in to your intelligent snippet library</p>

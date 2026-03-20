@@ -12,7 +12,7 @@ export const loginValidator = z.object({
         .regex(/[0-9]/, "One ore more numbers must be on password"),
 })
 
-// type LoginForm = z.infer<typeof authValidator>
+export type loginSend = z.infer<typeof loginValidator>
 
 export const registerValidator = z.object({
     firstName:
@@ -50,8 +50,29 @@ export const registerDTO = z.object({
     email: z.string(),
 })
 
+export type typeRegisterDTO = z.infer<typeof registerDTO>
+
 export const responseRegisterSuccess = z.object({
     user: registerDTO
 })
 
 export type typeResponseRegisterSuccess = z.infer<typeof responseRegisterSuccess>
+
+
+/** LOGIN API */
+
+const responseServiceLogin = z.object({
+    accessToken: z.string(),
+    refreshToken: z.string(),
+    user: registerDTO
+})
+
+export type typeResponseServiceLogin = z.infer<typeof responseServiceLogin>
+
+export const responseLoginAPI = z.object({
+    message: z.string(),
+    session: responseServiceLogin
+})
+
+export type typeResponseLoginAPI = z.infer<typeof responseLoginAPI>
+

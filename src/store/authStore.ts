@@ -13,6 +13,7 @@ const User = z.object({
 //type typeUser = z.infer<typeof User>
 
 const Session = z.object({
+    accessToken: z.string().nullable(),
     refreshToken: z.string().nullable(),
     user: User
 }).nullable();

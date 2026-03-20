@@ -34,6 +34,7 @@ export const Register = () => {
 
             const responseRegister : typeResponseRegisterSuccess = await mutationRegister.mutateAsync(data)
             setSession({
+                accessToken: null,
                 refreshToken: null,
                 user: responseRegister.user
             })
